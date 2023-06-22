@@ -47,16 +47,12 @@ export const budgetSlice = createSlice({
 
       const expenseIndex = state.expenses.findIndex(expense => expense.name === action.payload.name);
 
-      if (expenseIndex === -1) {
-        alert ("Expense not found")
-        return;
-      }
-      
-      if (state.expenses[expenseIndex].cost + value >= 0)
-      {
+      if (expenseIndex === -1) return;
+
+      if (state.expenses[expenseIndex].cost + value >= 0) {
         state.expenses[expenseIndex].cost += value;
         state.remaining = state.budget - newTotal;
-        state.totalExpenses = newTotal; 
+        state.totalExpenses = newTotal;
       }
     },
   }

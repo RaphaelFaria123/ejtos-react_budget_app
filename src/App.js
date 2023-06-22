@@ -16,8 +16,8 @@ import ReduxAllocationForm from './components/redux/AllocationForm';
 
 const App = () => {
     return (
-        <AppProvider>
-            <div className='container'>
+        <div className='container'>
+            <AppProvider>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
                 <div className='row mt-3'>
                     <div className='col-sm'>
@@ -31,7 +31,7 @@ const App = () => {
                     </div>
                     <div className='col-sm'>
                         <CurrencySelector />
-                    </div>                    
+                    </div>
                 </div>
                 <h3 className='mt-3'>Allocation</h3>
                 <div className='row '>
@@ -45,35 +45,36 @@ const App = () => {
                         <AllocationForm />
                     </div>
                 </div>
-                <h1 className='mt-3'>Company's Redux Budget Allocation</h1>
-                <div className='row mt-3'>
-                    <div className='col-sm'>
-                        <ReduxBudget />
-                    </div>
-                    <div className='col-sm'>
-                        <ReduxRemaining />
-                    </div>
-                    <div className='col-sm'>
-                        <ReduxExpenseTotal />
-                    </div>
-                    <div className='col-sm'>
-                        <ReduxCurrencySelector />
-                    </div>                    
-                </div>              
-                <h3 className='mt-3'>Redux Allocation</h3>
-                <div className='row mt-3'>
-                    <div className='col-sm'>
-                        <ReduxExpenseList />
-                    </div>
-                </div>    
-                <h3 className='mt-3'>Redux Change allocation</h3>
-                <div className='row mt-3'>
-                    <div className='col-sm'>
-                        <ReduxAllocationForm />
-                    </div>
-                </div>                            
+            </AppProvider>
+
+            <h1 className='mt-3'>Company's Redux Budget Allocation</h1>
+            <div className='row mt-3'>
+                <div className='col-sm'>
+                    <ReduxBudget />
+                </div>
+                <div className='col-sm'>
+                    <ReduxRemaining />
+                </div>
+                <div className='col-sm'>
+                    <ReduxExpenseTotal />
+                </div>
+                <div className='col-sm'>
+                    <ReduxCurrencySelector />
+                </div>
             </div>
-        </AppProvider>
+            <h3 className='mt-3'>Redux Allocation</h3>
+            <div className='row mt-3'>
+                <div className='col-sm'>
+                    <ReduxExpenseList />
+                </div>
+            </div>
+            <h3 className='mt-3'>Redux Change allocation</h3>
+            <div className='row mt-3'>
+                <div className='col-sm'>
+                    <ReduxAllocationForm />
+                </div>
+            </div>
+        </div>
     );
 };
 

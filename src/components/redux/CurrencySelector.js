@@ -1,22 +1,18 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { setCurrency } from '../../context/budgetSlice';
 
 const CurrencySelector = () => {
-    const { dispatch, currency } = useContext(AppContext);
+    const currency = useSelector(state => state.budget.currency);
+    const dispatch = useDispatch();
 
-    const changeCurrency = (value) => {
-        dispatch({
-            type: 'CHG_CURRENCY',
-            payload: value,
-        })
-    }
     const alertType = (val) => {
         return val !== currency ? 'alert-success' : '';
     }
 
     return (
         <div className='alert alert-success'> Currency {currency} {
-            <select name="Currency" id="Currency" value={currency} onChange={event => changeCurrency(event.target.value)} style={{ marginLeft: '2rem', width: '8rem', height: '1.5rem' }}>
+            <select name="Currency" id="Currency" value={currency} onChange={event => dispatch(setCurrency(event.target.value))} style={{ marginLeft: '2rem', width: '8rem', height: '1.5rem' }}>
                 <option className={`alert ${alertType('$')}`} value="$">$ Dollar</option>
                 <option className={`alert ${alertType('£')}`} value="£">£ Pound</option>
                 <option className={`alert ${alertType('€')}`} value="€">€ Euro</option>
